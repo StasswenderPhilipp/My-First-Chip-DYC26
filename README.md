@@ -43,7 +43,7 @@ Follow this instructions: [librelane instalation](https://librelane.readthedocs.
 1. To run the flow
 
 ```
-cd exercises/librelane-classic
+cd examples/librelane-classic
 make librelane
 ```
 
@@ -58,7 +58,7 @@ make view-results
 1. To run the flow
 
 ```
-cd exercises/librelane-chip
+cd examples/librelane-chip
 make librelane
 ```
 
