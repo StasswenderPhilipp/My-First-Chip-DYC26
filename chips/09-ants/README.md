@@ -11,7 +11,7 @@ This chip implements and demonstrates an Ant Colony Optimization (ACO)-inspired 
 The chip runs on a single 25 MHz clock derived from the VGA pixel clock. Several SRAM macros store the pheromone grid and the double-buffered framebuffer respectively.
 
 The following figure shows the major components as well as an overview of the inputs and outputs of the chip: 
-![figure_chip](docs/chip.png)
+![figure_chip](chip.png)
 
 
 ## Pin List

@@ -7,3 +7,6 @@
 [submodule "chips/09_ants/design_data"]
 	path = chips/09_ants/design_data
 	url = https://gitlab.lrz.de/hm-rittensc/antchipdesign
+[submodule "chips/09-ants/design_data"]
+	path = chips/09-ants/design_data
+	url = https://gitlab.lrz.de/hm-rittensc/antchipdesign
