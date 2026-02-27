@@ -46,10 +46,10 @@ The following figure shows the major components as well as an overview of the in
 
 | Pin | Direction | Description |
 |-----|-----------|-------------|
-| `nest_x_PADs[9:0]` | Input | X coordinate of nest (0–203) |
-| `nest_y_PADs[8:0]` | Input | Y coordinate of nest (0–159) |
-| `food_x_PADs[9:0]` | Input | X coordinate of food source (0–203) |
-| `food_y_PADs[8:0]` | Input | Y coordinate of food source (0–159) |
+| `nest_x_PADs[7:0]` | Input | X coordinate of nest (0–203) |
+| `nest_y_PADs[7:0]` | Input | Y coordinate of nest (0–159) |
+| `food_x_PADs[7:0]` | Input | X coordinate of food source (0–203) |
+| `food_y_PADs[7:0]` | Input | Y coordinate of food source (0–159) |
 
 ### Display Color Controls
 
