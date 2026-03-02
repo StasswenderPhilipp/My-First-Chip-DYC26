@@ -1,0 +1,111 @@
+meta:
+  version: 3
+  flow: Chip
+  substituting_steps:
+  
+    # Magic reports some overlaps which can be ignored
+    Checker.IllegalOverlap: null
+    # Not working correctly
+    KLayout.SealRing: null
+    # Disable magic DRC 
+    Magic.DRC: null
+    Checker.MagicDRC: null
+    # Disable KLayout density check
+    KLayout.Density: null
+    Checker.KLayoutDensity: null
+
+    # you can uncomment this for the flow to be faster. Comment it again in the final run.
+    # KLayout.DRC: null
+    # Checker.KLayoutDRC: null
+
+    # you can uncomment this for the flow to be faster. Comment it again in the final run.
+    # KLayout.Antenna: null
+    # Checker.KLayoutAntenna: null
+    
+    # you can uncomment this for the flow to be faster. Comment it again in the final run.
+    # OpenROAD.IRDropReport: null
+    # KLayout.XOR: null
+    # Netgen.LVS: null
+    # Checker.LVS: null
+
+DESIGN_NAME: top
+
+VERILOG_FILES:
+  - src/top.sv
+  - src/chip.sv
+  - src/crc_compare.sv
+  - src/crc8_stream.sv
+  - src/calculator.sv
+  - src/tmr.sv
+  - src/crc_controller.sv
+
+USE_SLANG: true
+
+CLOCK_PERIOD: 10
+CLOCK_PORT: clk_PAD
+
+FP_SIZING: absolute
+DIE_AREA:  [0, 0, 1210, 1130]
+CORE_AREA: [350, 350, 860, 780]
+
+PDN_CORE_RING: true
+PDN_CORE_RING_CONNECT_TO_PADS: true
+MAGIC_EXT_UNIQUE: "notopports"
+PDN_ENABLE_PINS: false
+PDN_CORE_RING_VWIDTH: 15
+PDN_CORE_RING_HWIDTH: 15
+PDN_VPITCH: 50
+PDN_HPITCH: 50
+PDN_VWIDTH: 3.5
+PDN_HWIDTH: 3.5
+
+PDN_OBSTRUCTIONS:
+  - [TopMetal2, 450, 450, 750, 600]
+
+ROUTING_OBSTRUCTIONS:
+  - [TopMetal2, 450, 450, 750, 600]
+
+VDD_NETS: ["VDD"]
+GND_NETS: ["VSS"]
+
+GRT_ALLOW_CONGESTION: true
+IGNORE_DISCONNECTED_MODULES:
+- bondpad_70x70
+EXTRA_GDS: 
+- dir::bondpad/bondpad_70x70.gds
+EXTRA_LEFS:
+- dir::bondpad/bondpad_70x70.lef
+
+PAD_SOUTH:
+  - "vdd_pads\\[0\\].vdd_pad"
+  - "vss_pads\\[0\\].vss_pad"
+  - "iovdd_pads\\[0\\].iovdd_pad"
+  - "iovss_pads\\[0\\].iovss_pad"
+  - in_ready_pad
+  - out_valid_pad
+  - "out_data_pads\\[7\\].out_data_pad"
+
+PAD_WEST:
+  - clk_pad
+  - rst_n_pad
+  - in_valid_pad
+  - out_ready_pad
+  - "out_data_pads\\[6\\].out_data_pad"
+  - "in_data_pads\\[7\\].in_data_pad"
+
+PAD_EAST:
+  - "out_data_pads\\[0\\].out_data_pad"
+  - "out_data_pads\\[1\\].out_data_pad"
+  - "out_data_pads\\[2\\].out_data_pad"
+  - "out_data_pads\\[3\\].out_data_pad"
+  - "out_data_pads\\[4\\].out_data_pad"
+  - "out_data_pads\\[5\\].out_data_pad"
+
+PAD_NORTH:
+  - "in_data_pads\\[0\\].in_data_pad"
+  - "in_data_pads\\[1\\].in_data_pad"
+  - "in_data_pads\\[2\\].in_data_pad"
+  - "in_data_pads\\[3\\].in_data_pad"
+  - "in_data_pads\\[4\\].in_data_pad"
+  - "in_data_pads\\[5\\].in_data_pad"
+  - "in_data_pads\\[6\\].in_data_pad"
